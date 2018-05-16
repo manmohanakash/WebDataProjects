@@ -1,0 +1,87 @@
+drop database vet;
+create database vet;
+use vet;
+
+create table client(
+clientid INT(10) AUTO_INCREMENT,
+name VARCHAR(20) NOT NULL,
+address VARCHAR(50) NOT NULL,
+phone INT(10) NOT NULL,
+email VARCHAR(30) UNIQUE,
+password VARCHAR(300) NOT NULL,
+Primary key (clientid));
+
+create table service(
+serviceid INT(10) AUTO_INCREMENT,
+servicename VARCHAR(30) NOT NULL,
+description Text(1000) NOT NULL,
+Primary key (serviceid));
+
+create table contact(
+name VARCHAR(30) NOT NULL,
+email VARCHAR(30) NOT NULL,
+comments Text(100));
+
+create table pet(
+petid INT(10) AUTO_INCREMENT,
+petname VARCHAR(20) NOT NULL,
+Primary key (petid));
+
+create table questions(
+questionid INT(10) AUTO_INCREMENT,
+question Text(200) NOT NULL,
+answer Text(1000),
+Primary key (questionid));
+
+create table subscription(
+clientid INT(10) NOT NULL,
+serviceid INT(10) NOT NULL,
+petid INT(10) NOT NULL,
+date DATE NOT NULL,
+Foreign Key (clientid) references client(clientid),
+Foreign Key (serviceid) references service(serviceid),
+Foreign Key (petid) references pet(petid));
+
+INSERT INTO `client` (`clientid`, `name`, `address`, `phone`, `email`, `password`) VALUES
+(1, 'Akash', '11 UTA blvd, Arlington , Texas', 2147483647, 'akash@gmail.com', '$2y$10$obx9WSF8RTjMF997rlEDzeBZl8mts./nkARamUgLp1hoFvCz3Oea.'),
+(2, 'John Wilson', '32,Summit Avenue, Arlington , Texas32,Summit Avenu', 2147483647, 'johnwilson@gmail.com', '$2y$10$6V7maXfHa5XWvEVnk.p2EOLKDtSeZ2NempHZnln1VSwPBWrWIrUBm'),
+(3, 'Ricky Pointing', '232 Greek Row, Arlington , Texas', 2147483647, 'ricky.pointing@gmail.com', '$2y$10$RfUu12wQbWPAMFjDu7uVwOKSqA4o5QxPc1y8uFDWPx2L1FhN/CC9K'),
+(4, 'Shane Warne', '12 Greek Row, Arlington , Texas', 2147483647, 'shane_warne@gmail.com', '$2y$10$34ozUfYg42fBMExtHYqHSOKJNowiTz1Hu50yPFzsvqWNFNBIIxWpm'),
+(5, 'Monica Das', '42 California street, Arlington , Texas', 2147483647, 'galler_monica@gmail.com', '$2y$10$rGaBG5GIsZas4O0hJ7MTqeo1DMMHAe1ihDEv3ixFUuSbG2EfcKw.W');
+
+
+INSERT INTO service(servicename,description) VALUES ("Medical Services","We offer state-of-the-art equipment and technology.");
+INSERT INTO service(servicename,description) VALUES ("Surgical Services","Full range of surgical procedures including orhopedics and emergency surgeries.");
+INSERT INTO service(servicename,description) VALUES ("Dental Care","A dental exam can determine whether your pet needs preventive dental care such as scaling and polishing.");
+INSERT INTO service(servicename,description) VALUES ("House Calls","The elderly physically challenged and mtabletiple pet households often find our in-home veterinary service helpftable and convenient.");
+INSERT INTO service(servicename,description) VALUES ("Emergencies","At least one of our doctors is on call every day and night.");
+
+INSERT INTO contact(name,email,comments) VALUES ("Akash","akash@gmail.com","I need an appointment to get my dog vaccined");
+INSERT INTO contact(name,email,comments) VALUES ("John Wilson","johnwilson@gmail.com","Are cats treated in your hosiptal");
+INSERT INTO contact(name,email,comments) VALUES ("Akash","akash@gmail.com","Durning my appointment today I was told that my dog needs another checkup. Can you please let me know when I am supposed to visit again");
+INSERT INTO contact(name,email,comments) VALUES ("Shane Warne","shane_warne@gmail.com","My dog is not eating from a two days. Can you please let me know if you are open 24hours");
+INSERT INTO contact(name,email,comments) VALUES ("Shane Warne","shane_warne@gmail.com","Please schedule an appointment at anytime on this wednesday for me. Thanks");
+INSERT INTO contact(name,email,comments) VALUES ("Monice Galler","galler_monica@gmail.com","Do you have any dog which needs adoption?");
+INSERT INTO contact(name,email,comments) VALUES ("Akash","akash@gmail.com","I did not receive the receipt which I was supposed to receive in mail");
+ 
+INSERT INTO pet(petname) VALUES ("Dog");
+INSERT INTO pet(petname) VALUES ("Cat");
+INSERT INTO pet(petname) VALUES ("Snake");
+INSERT INTO pet(petname) VALUES ("Fish");
+INSERT INTO pet(petname) VALUES ("Lizard");
+INSERT INTO pet(petname) VALUES ("Bird");
+
+INSERT INTO questions(question,answer) VALUES("What’s different about Thrive pet food?","At Thrive we believe that you and your pet are what you eat. So we’ve used our 30+ years of experience of making premium quality food for humans to create a revolutionary ‘real’ pet food with simple, easily recognisable ingredients. We insist on using human-grade cuts of meat or fish, no substitutes and absolutely no ‘animal derivatives’. Our food is completely pure and free from artificial colours, flavours and preservatives, added sugars, wheat, gluten, dairy, soya and GM ingredients (you could say it’s what we leave out that makes us different!).");
+INSERT INTO questions(question,answer) VALUES("What you mean by ‘complete’ food?","‘Complete’ is a phrase that guarantees our pet food has all the vitamins, minerals and nutrients required for a balanced diet, as per the European Pet Food Industry Federation (FEDIAF) recommended guidelines. ");
+INSERT INTO questions(question,answer) VALUES("What does vet-approved mean? ","Products have been recommended and sold by vets.");
+INSERT INTO questions(question,answer) VALUES("What are the salt amounts in the range?","Do not add salt or sugars to any food.");
+INSERT INTO questions(question,answer) VALUES("When should I change from ‘puppy’ to ‘adult’?","There is no hard and fast rule and we think it depends on the breed. Although small breeds live twice as long as very large breeds, the big boys actually take longer to reach their adult body weight. So check with your breeder and/or your vet for guidance.");
+INSERT INTO questions(question,answer) VALUES("Can Fleas Kill a Dog?","It’s not just the constant itching that flea bites cause – if left untreated, fleas are capable of reproducing and multiplying rapidly and the more fleas there are, the more blood your dog is losing. Think of it this way: an adult female flea can lay up to 50 eggs per day. And the more fleas that live on our dog, the more blood they suck – a female flea consumed up to 15 times her own body weight in blood daily!");
+
+INSERT INTO `subscription` (`clientid`, `serviceid`, `petid`, `date`) VALUES
+(1, 2, 1, '2017-11-21'),
+(2, 1, 2, '2017-11-21'),
+(3, 3, 1, '2017-11-21'),
+(4, 5, 6, '2017-11-21'),
+(5, 4, 4, '2017-11-21'),
+(5, 5, 4, '2017-11-21');

@@ -1,0 +1,124 @@
+body{
+font-family:Verdana,Arial,sans-serif;
+background-color:#6699ff;
+}
+
+#container{
+background-color:white;
+width:80%;
+margin:0% 0% 0% 10%; 
+}
+
+h1{
+line-height:200%;
+background-image: url("images/bigfish.gif");
+background-size:100% 100%;
+color:#ffffff;
+text-align:center;
+font-size:2.75em;
+text-shadow: 1px 2px #dedede;
+}
+
+h2{
+	color:#2a2ac0;
+	text-shadow: 1px 2px #aaa;
+}
+h3{
+    padding: 0px;
+    margin: 0px;   
+}
+
+h4{
+	padding: 0px;
+    margin: 0px; 
+	color:#003f6e;
+	text-shadow: 1px 2px #aaa;
+	font-size:1.6em;
+}
+
+nav{
+font-weight:bold;
+font-size:1.1em;
+float:left;
+width:12%;
+margin:3% 0% 0% 3%; 
+}
+
+section 
+{
+	
+display:block;
+padding-left:15%;
+background-color:white;
+margin:0% 0% 0% 0%; 
+padding:1% 5% 0% 5%;
+height:65vh; 
+overflow:auto;
+}
+
+footer{
+color:#460da5;
+font-style:italic;
+font-size:0.70em;
+height:100%;
+margin:0% 0% 0% 0%; 
+padding:2% 0% 2% 15%; 
+}
+
+a{
+text-decoration:none;
+}
+
+a:visited{
+	color:blue;
+}
+
+a:hover{
+	text-decoration:underline;
+	color:red;
+}
+
+p{
+	color:#460da5;
+	font-size:1.2em;
+	font-family:Arial;
+	padding: 0% 0% 0% 0%;
+}
+
+.answer{
+	padding: 0% 0% 0% 5%;
+}
+
+
+
+#form th{
+	font-weight:normal;
+	text-align: right;
+	padding:2% 1% 0% 0%;
+	color:#460da5;
+	font-size:1.2em;
+	font-family:Arial;
+}
+
+#form td {
+	padding:3% 0% 0% 5%;
+	color:#030381;
+	font-size:0.75em;
+	font-family:Arial;
+	padding: 0% 0% 0% 5%;
+}
+
+
+.erralert {
+    padding: 20px;
+    background-color: red;
+    color: white;
+    margin-bottom: 15px;
+}
+.msgalert {
+    padding: 20px;
+    background-color: green; 
+    color: white;
+    margin-bottom: 15px
+}
+
